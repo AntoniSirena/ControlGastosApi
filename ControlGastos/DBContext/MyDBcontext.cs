@@ -25,6 +25,8 @@ namespace ControlGastos.DBContext
 
         public DbSet<TiposGastos> TiposGastos { get; set; }
 
+        public DbSet<Persona> Personas { get; set; }
+
 
     }
 }
