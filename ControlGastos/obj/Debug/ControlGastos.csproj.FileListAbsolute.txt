@@ -205,7 +205,6 @@ C:\Git\ControlGastosApi\ControlGastos\bin\Microsoft.AI.DependencyCollector.xml
 C:\Git\ControlGastosApi\ControlGastos\bin\Microsoft.AI.WindowsServer.xml
 C:\Git\ControlGastosApi\ControlGastos\bin\Microsoft.AI.Web.xml
 C:\Git\ControlGastosApi\ControlGastos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csprojAssemblyReference.cache
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csproj.CoreCompileInputs.cache
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csproj.CopyComplete
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.dll

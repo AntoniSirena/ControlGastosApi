@@ -1,5 +1,6 @@
 namespace ControlGastos.Migrations
 {
+    using ControlGastos.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,10 +15,22 @@ namespace ControlGastos.Migrations
 
         protected override void Seed(ControlGastos.DBContext.MyDBcontext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.TiposGastos.AddOrUpdate(
+              p => p.Descripcion,
+              new TiposGastos { Codigo = "01", Descripcion = "Gastos Fijos" },
+              new TiposGastos { Codigo = "02", Descripcion = "Gastos Variables" },
+              new TiposGastos { Codigo = "03", Descripcion = "Gastos Marginales" },
+              new TiposGastos { Codigo = "04", Descripcion = "Gastos Mixtos" },
+              new TiposGastos { Codigo = "05", Descripcion = "Gastos Directos" },
+              new TiposGastos { Codigo = "06", Descripcion = "Gastos Indirectos" }
+              );
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+
+
+
+
+            context.SaveChanges();
+
         }
     }
 }

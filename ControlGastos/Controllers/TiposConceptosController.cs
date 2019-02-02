@@ -19,15 +19,30 @@ namespace ControlGastos.Controllers
         [Route("GetAll")]
         public IEnumerable<TiposConceptos> GetAll()
         {
-            return db.TiposConceptos.ToList();
+            var resul = db.TiposConceptos.ToList() ;
+
+            return resul;
         }
 
         [HttpGet]
         [Route("GetById/{id}")]
         public IEnumerable<TiposConceptos> GetById(int? id)
         {
-            return db.TiposConceptos.Where(P => P.Id == id).ToList();
+            var result =(from T in db.TiposConceptos where T.Id == id select T).ToList();
+
+            return result;
         }
+
+
+        [HttpGet]
+        [Route("GetTiposGastos")]
+        public IEnumerable<TiposGastos> GetTiposGastos()
+        {
+            var resul = db.TiposGastos.ToList();
+
+            return resul;
+        }
+
 
 
         [HttpPost]
@@ -53,6 +68,7 @@ namespace ControlGastos.Controllers
 
             query.Codigo = tiposConceptos.Codigo;
             query.Descripcion = tiposConceptos.Descripcion;
+            query.TipoGastoId = tiposConceptos.TipoGastoId;
             db.SaveChanges();
 
             return resultado;
