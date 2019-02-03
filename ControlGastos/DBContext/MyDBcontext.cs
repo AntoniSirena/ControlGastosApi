@@ -27,6 +27,9 @@ namespace ControlGastos.DBContext
 
         public DbSet<Persona> Personas { get; set; }
 
+        public DbSet<Area> Areas { get; set; }
+
+
 
     }
 }
