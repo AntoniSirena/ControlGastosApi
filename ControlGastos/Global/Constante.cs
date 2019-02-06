@@ -15,6 +15,11 @@ namespace ControlGastos.Global
         }
             
 
+        public static class TiposTransaccion
+        {
+            public const string Gasto = "GAT";
+            public const string Ingeso = "ING";
+        }
 
     }
 }

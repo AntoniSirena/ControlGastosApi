@@ -35,6 +35,12 @@ namespace ControlGastos.DBContext
 
         public DbSet<Statuses> Statuses { get; set; }
 
+        public DbSet<TiposTransacciones> TiposTrasacciones { get; set; }
+
+        public DbSet<Transacciones> Transacciones { get; set; }
+
+
+
 
 
 

@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace ControlGastos.Models
+{
+    public class Transacciones
+    {
+        [Key]
+        public int Id { get; set; }
+
+        public int? TipoTransacionId { get; set; }
+
+        public int? ConceptoId { get; set; }
+
+        public int? PeriodoId { get; set; }
+
+        public int? SemanaId { get; set; }
+
+        public int? AreaId { get; set; }
+
+        public decimal Monto { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public string FechaCreacion { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public string FechaRegistro { get; set; }
+
+        public string Coomentario { get; set; }
+
+
+
+        [ForeignKey("TipoTransacionId")]
+        public virtual TiposTransacciones TiposTransaccion { get; set; }
+
+        [ForeignKey("ConceptoId")]
+        public virtual TiposConceptos TiposConcepto { get; set; }
+
+        [ForeignKey("PeriodoId")]
+        public virtual Periodos Periodo  { get; set; }
+
+        [ForeignKey("SemanaId")]
+        public virtual Semanas Semana { get; set; }
+
+        [ForeignKey("AreaId")]
+        public virtual Area Area { get; set; }
+    }
+}

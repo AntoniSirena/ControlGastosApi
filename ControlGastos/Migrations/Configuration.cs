@@ -52,6 +52,13 @@ namespace ControlGastos.Migrations
 
               );
 
+            //TiposTrasacciones
+            context.TiposTrasacciones.AddOrUpdate(
+              p => p.Descripcion,
+              new TiposTransacciones { Codigo = "GAT", Descripcion = "Gasto" },
+              new TiposTransacciones { Codigo = "ING", Descripcion = "Ingreso" }
+              );
+
 
 
 
