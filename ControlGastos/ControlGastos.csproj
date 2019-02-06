@@ -197,20 +197,22 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeriodoController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\TiposConceptosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DBContext\MyDBcontext.cs" />
+    <Compile Include="Dto\PeriodoDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902022345518_Areapp.cs" />
-    <Compile Include="Migrations\201902022345518_Areapp.Designer.cs">
-      <DependentUpon>201902022345518_Areapp.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Global\Constante.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Statuses.cs" />
+    <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\Semanas.cs" />
     <Compile Include="Models\TiposConceptos.cs" />
     <Compile Include="Models\TiposGastos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -300,11 +302,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902022345518_Areapp.resx">
-      <DependentUpon>201902022345518_Areapp.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

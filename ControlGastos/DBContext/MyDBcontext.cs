@@ -29,6 +29,14 @@ namespace ControlGastos.DBContext
 
         public DbSet<Area> Areas { get; set; }
 
+        public DbSet<Semanas> Semanas { get; set; }
+
+        public DbSet<Periodos> Periodos { get; set; }
+
+        public DbSet<Statuses> Statuses { get; set; }
+
+
+
 
 
     }

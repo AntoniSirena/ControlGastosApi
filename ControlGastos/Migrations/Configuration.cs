@@ -15,6 +15,7 @@ namespace ControlGastos.Migrations
 
         protected override void Seed(ControlGastos.DBContext.MyDBcontext context)
         {
+            //Tipos de gastos
             context.TiposGastos.AddOrUpdate(
               p => p.Descripcion,
               new TiposGastos { Codigo = "01", Descripcion = "Gastos Fijos" },
@@ -25,6 +26,31 @@ namespace ControlGastos.Migrations
               new TiposGastos { Codigo = "06", Descripcion = "Gastos Indirectos" }
               );
 
+            //Semanas
+            context.Semanas.AddOrUpdate(
+              p => p.Descripcion,
+              new Semanas { Codigo = "01", Descripcion = "Semana1" },
+              new Semanas { Codigo = "02", Descripcion = "Semana2" },
+              new Semanas { Codigo = "03", Descripcion = "Semana3" },
+              new Semanas { Codigo = "04", Descripcion = "Semana4" },
+              new Semanas { Codigo = "05", Descripcion = "Semana5" },
+              new Semanas { Codigo = "06", Descripcion = "Semana6" },
+              new Semanas { Codigo = "07", Descripcion = "Semana7" },
+              new Semanas { Codigo = "08", Descripcion = "Semana8" },
+              new Semanas { Codigo = "09", Descripcion = "Semana9" },
+              new Semanas { Codigo = "10", Descripcion = "Semana10" },
+              new Semanas { Codigo = "11", Descripcion = "Semana11" },
+              new Semanas { Codigo = "12", Descripcion = "Semana12" }
+              );
+
+            //Statuses
+            context.Statuses.AddOrUpdate(
+              p => p.Descripcion,
+              new Statuses { Codigo = "01", Descripcion = "Abierto" },
+              new Statuses { Codigo = "02", Descripcion = "Pendiente de abrir" },
+              new Statuses { Codigo = "03", Descripcion = "Cerrado" }
+
+              );
 
 
 
