@@ -23,10 +23,25 @@ namespace ControlGastos.Controllers
         {
             var resul = (from T in db.Transacciones
                           join TT in db.TiposTrasacciones on T.TipoTransacionId equals TT.Id
-                          where TT.Codigo == Constante.TiposTransaccion.Gasto
-                          select T ).ToList();
+                          where TT.Codigo == Constante.TiposTransaccion.Gasto  & T.EstaAnulada == false
+                         select T ).ToList();
 
             return resul;
+        }
+
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public IEnumerable<Transacciones> GetById(int? id)
+        {
+            var result = (from T in db.Transacciones
+                          join P in db.Periodos on T.PeriodoId equals P.Id
+                          join S in db.Statuses on P.StatusId equals S.Id
+                          where T.Id == id & T.EstaAnulada == false
+                          where S.Codigo == Constante.Statuses.Abierto
+                          select T).ToList();
+
+            return result;
         }
 
 
@@ -91,18 +106,23 @@ namespace ControlGastos.Controllers
         }
 
 
-        //[HttpPut]
-        //[Route("Anular")]
-        //public HttpResponseMessage Update(int? int)
-        //{
-        //    var resultado = new HttpResponseMessage(HttpStatusCode.OK);
 
-        //    var query = db.Personas.Single(P => P.Id == persona.Id);
 
-        //    db.SaveChanges();
+        [HttpPut]
+        [Route("Anular")]
+        public HttpResponseMessage Update(Transacciones transaccion)
+        {
+            var resultado = new HttpResponseMessage(HttpStatusCode.OK);
 
-        //    return resultado;
-        //}
+            var query = db.Transacciones.Single(P => P.Id == transaccion.Id);
+
+            query.EstaAnulada = true;
+            query.FechaAnulacion = DateTime.Now.ToString("yyyy-MM-dd");
+
+            db.SaveChanges();
+
+            return resultado;
+        }
 
 
     }

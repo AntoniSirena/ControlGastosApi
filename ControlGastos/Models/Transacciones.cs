@@ -32,6 +32,10 @@ namespace ControlGastos.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public string FechaRegistro { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public string FechaAnulacion { get; set; }
+
         public string Comentario { get; set; }
 
         public bool EstaAnulada { get; set; }
