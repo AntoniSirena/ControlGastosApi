@@ -69,7 +69,8 @@ namespace ControlGastos.Controllers
             var resultado = new HttpResponseMessage(HttpStatusCode.OK);
 
             var periodoActivoId = (from P in db.Periodos
-                                   where P.Codigo == Constante.Statuses.Abierto & P.EstaActivo == true
+                                   join S in db.Statuses on P.StatusId equals S.Id
+                                   where S.Codigo == Constante.Statuses.Abierto & P.EstaActivo == true
                                    select P.Id).FirstOrDefault();
 
 

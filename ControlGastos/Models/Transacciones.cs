@@ -32,9 +32,11 @@ namespace ControlGastos.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public string FechaRegistro { get; set; }
 
-        public string Coomentario { get; set; }
+        public string Comentario { get; set; }
 
         public bool EstaAnulada { get; set; }
+
+        public string Referencia { get; set; }
 
 
 
