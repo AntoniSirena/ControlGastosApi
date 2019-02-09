@@ -200,6 +200,7 @@
     <Compile Include="Controllers\PeriodoController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\TiposConceptosController.cs" />
+    <Compile Include="Controllers\TransaccionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DBContext\MyDBcontext.cs" />
     <Compile Include="Dto\PeriodoDto.cs" />
@@ -207,10 +208,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global\Constante.cs" />
-    <Compile Include="Migrations\201902060442016_Transa.cs" />
-    <Compile Include="Migrations\201902060442016_Transa.Designer.cs">
-      <DependentUpon>201902060442016_Transa.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Statuses.cs" />
@@ -308,11 +305,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902060442016_Transa.resx">
-      <DependentUpon>201902060442016_Transa.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

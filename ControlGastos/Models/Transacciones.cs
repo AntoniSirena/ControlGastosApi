@@ -34,21 +34,23 @@ namespace ControlGastos.Models
 
         public string Coomentario { get; set; }
 
+        public bool EstaAnulada { get; set; }
+
 
 
         [ForeignKey("TipoTransacionId")]
-        public virtual TiposTransacciones TiposTransaccion { get; set; }
+        public virtual TiposTransacciones TiposTransacciones { get; set; }
 
         [ForeignKey("ConceptoId")]
-        public virtual TiposConceptos TiposConcepto { get; set; }
+        public virtual TiposConceptos TiposConceptos { get; set; }
 
         [ForeignKey("PeriodoId")]
-        public virtual Periodos Periodo  { get; set; }
+        public virtual Periodos Periodos  { get; set; }
 
         [ForeignKey("SemanaId")]
-        public virtual Semanas Semana { get; set; }
+        public virtual Semanas Semanas { get; set; }
 
         [ForeignKey("AreaId")]
-        public virtual Area Area { get; set; }
+        public virtual Area Areas { get; set; }
     }
 }
