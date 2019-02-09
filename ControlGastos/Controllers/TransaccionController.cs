@@ -125,5 +125,14 @@ namespace ControlGastos.Controllers
         }
 
 
+        [HttpGet]
+        [Route("HistorialTransaccionAnulada")]
+        public IEnumerable<Transacciones> GetTransaccionAnulada()
+        {
+            var resul = db.Transacciones.Where(P => P.EstaAnulada == true).ToList();
+
+            return resul;
+        }
+
     }
 }
