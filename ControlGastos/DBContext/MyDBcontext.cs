@@ -39,6 +39,9 @@ namespace ControlGastos.DBContext
 
         public DbSet<Transacciones> Transacciones { get; set; }
 
+        public DbSet<RazonesAnulacion> RazonesAnulacion  { get; set; }
+
+
 
 
 

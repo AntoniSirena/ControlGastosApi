@@ -15,7 +15,11 @@ namespace ControlGastos.Models
         public string SegundoNombre { get; set; }
         public string PrimerApellido { get; set; }
         public string SegundoApellido { get; set; }
-        public DateTime? FechaNacimiento { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public string FechaNacimiento { get; set; }
+
         public string Telefono { get; set; }
         public string Direccion { get; set; }
 

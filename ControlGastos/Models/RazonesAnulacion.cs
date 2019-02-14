@@ -4,12 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ControlGastos.Dto
+namespace ControlGastos.Models
 {
-    public class PeriodoDto
+    public class RazonesAnulacion
     {
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
+        [Key]
+        public int Id { get; set; }
 
+        public string Codigo { get; set; }
+
+        public string Descripcion { get; set; }
     }
 }

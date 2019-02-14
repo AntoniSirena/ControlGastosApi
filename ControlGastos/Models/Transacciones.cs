@@ -42,6 +42,8 @@ namespace ControlGastos.Models
 
         public string Referencia { get; set; }
 
+        public string Origen { get; set; }
+
 
 
         [ForeignKey("TipoTransacionId")]

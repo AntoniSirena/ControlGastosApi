@@ -19,15 +19,16 @@ namespace ControlGastos.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<Transacciones> GetAll()
+        public IEnumerable<Transacciones> GetAllTransacciones()
         {
             var resul = (from T in db.Transacciones
                           join TT in db.TiposTrasacciones on T.TipoTransacionId equals TT.Id
-                          where TT.Codigo == Constante.TiposTransaccion.Gasto  & T.EstaAnulada == false
+                          where T.EstaAnulada == false
                          select T ).ToList();
 
             return resul;
         }
+
 
 
         [HttpGet]
@@ -77,6 +78,32 @@ namespace ControlGastos.Controllers
 
 
 
+        //Metodo que retorna un resumen de las transacciones por Periodo y Conceptos
+        [HttpGet]
+        [Route("GetResumemTransacciones")]
+        public object GetResumemTransacciones()
+        {
+
+            var resumenTransacion = (from Trans in db.Transacciones
+                           join Per in db.Periodos on Trans.PeriodoId equals Per.Id
+                           join sem in db.Semanas on Trans.SemanaId equals sem.Id
+                           join TipTrans in db.TiposTrasacciones on Trans.TipoTransacionId equals TipTrans.Id
+
+                           select new
+                           { 
+                               TipoTransaccion = TipTrans.Descripcion,
+                               Periodo = Per.Descripcion,
+                               Semana = sem.Descripcion,
+                               Moto =Trans.Monto
+                           }).ToList();
+
+
+            return resumenTransacion;
+
+        }
+
+
+
         [HttpPost]
         [Route("Create")]
         public HttpResponseMessage Create(Transacciones transaccion)
@@ -89,15 +116,30 @@ namespace ControlGastos.Controllers
                                    select P.Id).FirstOrDefault();
 
 
-            var tipoTransaccionId = (from T in db.TiposTrasacciones
+            var tipoTransaccionGastoId = (from T in db.TiposTrasacciones
                                          where T.Codigo == Constante.TiposTransaccion.Gasto
                                          select T.Id).FirstOrDefault();
 
+            var tipoTransaccionIngresoId = (from T in db.TiposTrasacciones
+                                          where T.Codigo == Constante.TiposTransaccion.Ingeso
+                                          select T.Id).FirstOrDefault();
+
+
+            if( transaccion.Origen == "Gasto")
+            {
+                transaccion.TipoTransacionId = tipoTransaccionGastoId;
+            }
+
+            if(transaccion.Origen == "Ingreso")
+            {
+                transaccion.TipoTransacionId = tipoTransaccionIngresoId;
+            }
 
             transaccion.PeriodoId = periodoActivoId;
-            transaccion.TipoTransacionId = tipoTransaccionId;
             transaccion.FechaRegistro = DateTime.Now.ToString("yyyy-MM-dd");
             transaccion.EstaAnulada = false;
+
+
 
             db.Transacciones.Add(transaccion);
             db.SaveChanges();
