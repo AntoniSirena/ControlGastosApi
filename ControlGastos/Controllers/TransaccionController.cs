@@ -1,11 +1,13 @@
 ﻿using ControlGastos.DBContext;
 using ControlGastos.Global;
 using ControlGastos.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace ControlGastos.Controllers
@@ -81,24 +83,40 @@ namespace ControlGastos.Controllers
         //Metodo que retorna un resumen de las transacciones por Periodo y Conceptos
         [HttpGet]
         [Route("GetResumemTransacciones")]
-        public object GetResumemTransacciones()
+        public IEnumerable<Transacciones> GetResumemTransacciones()
         {
 
-            var resumenTransacion = (from Trans in db.Transacciones
-                           join Per in db.Periodos on Trans.PeriodoId equals Per.Id
-                           join sem in db.Semanas on Trans.SemanaId equals sem.Id
-                           join TipTrans in db.TiposTrasacciones on Trans.TipoTransacionId equals TipTrans.Id
+            var resul = db.Transacciones.ToList();
 
-                           select new
-                           { 
-                               TipoTransaccion = TipTrans.Descripcion,
-                               Periodo = Per.Descripcion,
-                               Semana = sem.Descripcion,
-                               Moto =Trans.Monto
-                           }).ToList();
+            //var querryTransacion = (from Trans in db.Transacciones
+            //                         join Per in db.Periodos on Trans.PeriodoId equals Per.Id
+            //                         join sem in db.Semanas on Trans.SemanaId equals sem.Id
+            //                         join TipTrans in db.TiposTrasacciones on Trans.TipoTransacionId equals TipTrans.Id
+
+            //                         select (new
+            //                         {
+            //                             TipoTransaccion = TipTrans.Descripcion,
+            //                             Periodo = Per.Descripcion,
+            //                             Semana = sem.Descripcion,
+            //                             TotalMonto = Trans.Monto
+            //                         })).ToList();
 
 
-            return resumenTransacion;
+            //var resumenTransaccion = from r in querryTransacion
+            //                         group r.TipoTransaccion by new {
+            //                             r.TipoTransaccion,
+            //                             r.Periodo,
+            //                             r.Semana
+            //                         } into tipoTransaccion
+            //                         select new
+            //                         {
+            //                             tipoTransaccion.Key.TipoTransaccion,
+            //                             tipoTransaccion.Key.Periodo,
+            //                             tipoTransaccion.Key.Semana
+            //                         };
+
+
+            return resul;
 
         }
 

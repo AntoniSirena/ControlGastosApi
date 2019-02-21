@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="ControlGastos" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Git\\ControlGastosApi\\ControlGastos\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Git\\ControlGastosApi\\ControlGastos\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ControlGastos-Web.config Connection String" description="" value="Data Source=DESKTOP-6U22R4I;Initial Catalog=ControlGastos;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Git\\ControlGastosApi\\ControlGastos\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ControlGastos']/@connectionString" />
+  </parameter>
+</parameters>
