@@ -1,4 +1,5 @@
 ﻿using ControlGastos.DBContext;
+using ControlGastos.Global;
 using ControlGastos.Models;
 using System;
 using System.Collections.Generic;
@@ -38,11 +39,19 @@ namespace ControlGastos.Controllers
         [Route("GetTiposGastos")]
         public IEnumerable<TiposGastos> GetTiposGastos()
         {
-            var resul = db.TiposGastos.ToList();
+            var resultado = db.TiposGastos.ToList();
 
-            return resul;
+            return resultado;
         }
 
+        [HttpGet]
+        [Route("GetTiposIngresos")]
+        public IEnumerable<TiposIngresos> GetTiposIngresos()
+        {
+            var resultado = db.TiposIngresos.ToList();
+
+            return resultado;
+        }
 
 
         [HttpPost]

@@ -217,6 +217,7 @@
     <Compile Include="Models\Semanas.cs" />
     <Compile Include="Models\TiposConceptos.cs" />
     <Compile Include="Models\TiposGastos.cs" />
+    <Compile Include="Models\TiposIngresos.cs" />
     <Compile Include="Models\TiposTransacciones.cs" />
     <Compile Include="Models\Transacciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

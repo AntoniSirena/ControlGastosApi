@@ -21,5 +21,11 @@ namespace ControlGastos.Global
             public const string Ingeso = "ING";
         }
 
+        public static class OrigenTipoConcepto
+        {
+            public const string Gasto = "Gasto";
+            public const string Ingreso = "Ingreso";
+        }
+
     }
 }
