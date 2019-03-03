@@ -77,7 +77,14 @@ namespace ControlGastos.Controllers
 
             query.Codigo = tiposConceptos.Codigo;
             query.Descripcion = tiposConceptos.Descripcion;
-            query.TipoGastoId = tiposConceptos.TipoGastoId;
+
+            if(tiposConceptos.Origen == Constante.OrigenTipoConcepto.Gasto)
+            {
+                query.TipoGastoId = tiposConceptos.TipoGastoId;
+            }
+
+            query.TipoIngresoId = tiposConceptos.TipoIngresoId;
+
             db.SaveChanges();
 
             return resultado;

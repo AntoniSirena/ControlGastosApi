@@ -78,6 +78,14 @@ namespace ControlGastos.Controllers
             return resul;
         }
 
+        [HttpGet]
+        [Route("GetRazonesAnulacion")]
+        public IEnumerable<RazonesAnulacionTransaccion> GetRazonesAnulacion()
+        {
+            var resul = db.RazonesAnulacionTransaccion.ToList();
+
+            return resul;
+        }
 
 
         //Metodo que retorna un resumen de las transacciones por Periodo y Conceptos
@@ -177,6 +185,7 @@ namespace ControlGastos.Controllers
             var query = db.Transacciones.Single(P => P.Id == transaccion.Id);
 
             query.EstaAnulada = true;
+            query.RazonAnulacionId = transaccion.RazonAnulacionId;
             query.FechaAnulacion = DateTime.Now.ToString("yyyy-MM-dd");
 
             db.SaveChanges();
