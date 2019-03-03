@@ -44,6 +44,8 @@ namespace ControlGastos.Models
 
         public string Origen { get; set; }
 
+        public int? RazonAnulacionId { get; set; }
+
 
 
         [ForeignKey("TipoTransacionId")]
@@ -60,5 +62,8 @@ namespace ControlGastos.Models
 
         [ForeignKey("AreaId")]
         public virtual Area Areas { get; set; }
+
+        [ForeignKey("RazonAnulacionId")]
+        public virtual RazonesAnulacionTransaccion RazonesAnulacionTransaccion { get; set; }
     }
 }

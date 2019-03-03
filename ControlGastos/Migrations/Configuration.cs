@@ -26,6 +26,13 @@ namespace ControlGastos.Migrations
               new TiposGastos { Codigo = "06", Descripcion = "Gastos Indirectos" }
               );
 
+            //Tipos de ingresoso
+            context.TiposIngresos.AddOrUpdate(
+              p => p.Descripcion,
+              new TiposIngresos { Codigo = "01", Descripcion = "Ordinarios" },
+              new TiposIngresos { Codigo = "02", Descripcion = "Extraordinarios" }           
+              );
+
             //Semanas
             context.Semanas.AddOrUpdate(
               p => p.Descripcion,
