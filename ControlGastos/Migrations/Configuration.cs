@@ -66,6 +66,15 @@ namespace ControlGastos.Migrations
               new TiposTransacciones { Codigo = "ING", Descripcion = "Ingreso" }
               );
 
+            //TiposPersonas
+            context.TiposPersonas.AddOrUpdate(
+              p => p.Descripcion,
+              new TiposPersonas { Codigo = "Ad", Descripcion = "Administrador" },
+              new TiposPersonas { Codigo = "Em", Descripcion = "Empleado" },
+              new TiposPersonas { Codigo = "Us", Descripcion =  "Usuario" },
+              new TiposPersonas { Codigo = "EmUs", Descripcion = "Empleado/Usuario"}
+              );
+
 
 
 

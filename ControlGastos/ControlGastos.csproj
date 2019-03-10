@@ -215,11 +215,12 @@
     <Compile Include="Models\RazonesAnulacionTransaccion.cs" />
     <Compile Include="Models\Statuses.cs" />
     <Compile Include="Models\Periodos.cs" />
-    <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\Personas.cs" />
     <Compile Include="Models\Semanas.cs" />
     <Compile Include="Models\TiposConceptos.cs" />
     <Compile Include="Models\TiposGastos.cs" />
     <Compile Include="Models\TiposIngresos.cs" />
+    <Compile Include="Models\TiposPersonas.cs" />
     <Compile Include="Models\TiposTransacciones.cs" />
     <Compile Include="Models\Transacciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

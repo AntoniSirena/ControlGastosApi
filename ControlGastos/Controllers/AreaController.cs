@@ -39,7 +39,7 @@ namespace ControlGastos.Controllers
 
         [HttpGet]
         [Route("GetPersona")]
-        public IEnumerable<Persona> GetPersona()
+        public IEnumerable<Personas> GetPersona()
         {
             var resul = db.Personas.ToList();
 

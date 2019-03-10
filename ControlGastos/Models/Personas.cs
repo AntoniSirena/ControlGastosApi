@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ControlGastos.Models
 {
-    public class Persona
+    public class Personas
     {
         [Key]
         public int Id { get; set; }
@@ -23,7 +23,13 @@ namespace ControlGastos.Models
         public string Telefono { get; set; }
         public string Direccion { get; set; }
 
+        public int? TipoPersonaId { get; set; }
+
         public string NombreCompleto { get { return string.Format("{0} {1} {2} {3}", PrimerNombre, SegundoNombre, PrimerApellido, SegundoApellido); } }
+
+
+        [ForeignKey("TipoPersonaId")]
+        public virtual TiposPersonas TiposPersonas { get; set; }
 
     }
 }

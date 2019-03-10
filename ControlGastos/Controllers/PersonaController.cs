@@ -17,7 +17,7 @@ namespace ControlGastos.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<Persona> GetAll()
+        public IEnumerable<Personas> GetAll()
         {
             var resul = db.Personas.ToList();
 
@@ -26,7 +26,7 @@ namespace ControlGastos.Controllers
 
         [HttpGet]
         [Route("GetById/{id}")]
-        public IEnumerable<Persona> GetById(int? id)
+        public IEnumerable<Personas> GetById(int? id)
         {
             var result = (from P in db.Personas where P.Id == id select P).ToList();
 
@@ -34,10 +34,19 @@ namespace ControlGastos.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GetTiposPersonas")]
+        public IEnumerable<TiposPersonas> GetTiposPersonas()
+        {
+            var resul = db.TiposPersonas.ToList();
+
+            return resul;
+        }
+
 
         [HttpPost]
         [Route("Create")]
-        public HttpResponseMessage Create(Persona persona)
+        public HttpResponseMessage Create(Personas persona)
         {
             var resultado = new HttpResponseMessage(HttpStatusCode.OK);
 
@@ -50,7 +59,7 @@ namespace ControlGastos.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public HttpResponseMessage Update(Persona persona)
+        public HttpResponseMessage Update(Personas persona)
         {
             var resultado = new HttpResponseMessage(HttpStatusCode.OK);
 
@@ -63,6 +72,7 @@ namespace ControlGastos.Controllers
             query.FechaNacimiento = persona.FechaNacimiento;
             query.Telefono = persona.Telefono;
             query.Direccion = persona.Direccion;
+            query.TipoPersonaId = persona.TipoPersonaId;
             db.SaveChanges();
 
             return resultado;

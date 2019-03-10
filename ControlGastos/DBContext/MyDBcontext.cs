@@ -25,7 +25,7 @@ namespace ControlGastos.DBContext
 
         public DbSet<TiposGastos> TiposGastos { get; set; }
 
-        public DbSet<Persona> Personas { get; set; }
+        public DbSet<Personas> Personas { get; set; }
 
         public DbSet<Area> Areas { get; set; }
 
@@ -44,6 +44,9 @@ namespace ControlGastos.DBContext
         public DbSet<TiposIngresos> TiposIngresos { get; set; }
 
         public DbSet<RazonesAnulacionTransaccion> RazonesAnulacionTransaccion { get; set; }
+
+        public DbSet<TiposPersonas> TiposPersonas { get; set; }
+
 
 
 
