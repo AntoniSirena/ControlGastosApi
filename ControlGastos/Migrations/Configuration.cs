@@ -75,7 +75,11 @@ namespace ControlGastos.Migrations
               new TiposPersonas { Codigo = "EmUs", Descripcion = "Empleado/Usuario"}
               );
 
-
+            //User
+            context.Users.AddOrUpdate(
+             p => p.Email,
+             new Users { PersonaId = 1, NombreUsuario ="admin", Password = "admin123456", Email = "admin@hotmail.com"}
+             );
 
 
             context.SaveChanges();

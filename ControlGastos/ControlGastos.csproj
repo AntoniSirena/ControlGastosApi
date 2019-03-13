@@ -202,6 +202,7 @@
     <Compile Include="Controllers\RazonesAnulacionTransaccionController.cs" />
     <Compile Include="Controllers\TiposConceptosController.cs" />
     <Compile Include="Controllers\TransaccionController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DBContext\MyDBcontext.cs" />
     <Compile Include="Dto\PeriodoDto.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Models\TiposPersonas.cs" />
     <Compile Include="Models\TiposTransacciones.cs" />
     <Compile Include="Models\Transacciones.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
