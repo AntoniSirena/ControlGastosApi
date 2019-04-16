@@ -82,9 +82,10 @@ namespace ControlGastos.Controllers
             {
                 query.TipoGastoId = tiposConceptos.TipoGastoId;
             }
-
-            query.TipoIngresoId = tiposConceptos.TipoIngresoId;
-
+            else
+            {
+                query.TipoIngresoId = tiposConceptos.TipoIngresoId;
+            }
             db.SaveChanges();
 
             return resultado;

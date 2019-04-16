@@ -90,43 +90,14 @@ namespace ControlGastos.Controllers
 
         //Metodo que retorna un resumen de las transacciones por Periodo y Conceptos
         [HttpGet]
-        [Route("GetResumemTransacciones")]
-        public IEnumerable<Transacciones> GetResumemTransacciones()
-        {
+        [Route("GetResumemIngresos")]
+        //public List<object> GetResumemIngresos()
+        //{
+        //    var ingreso = db.Database.ExecuteSqlCommand("SP_ResumenIngresos");
 
-            var resul = db.Transacciones.ToList();
+        //    return ingreso;
 
-            //var querryTransacion = (from Trans in db.Transacciones
-            //                         join Per in db.Periodos on Trans.PeriodoId equals Per.Id
-            //                         join sem in db.Semanas on Trans.SemanaId equals sem.Id
-            //                         join TipTrans in db.TiposTrasacciones on Trans.TipoTransacionId equals TipTrans.Id
-
-            //                         select (new
-            //                         {
-            //                             TipoTransaccion = TipTrans.Descripcion,
-            //                             Periodo = Per.Descripcion,
-            //                             Semana = sem.Descripcion,
-            //                             TotalMonto = Trans.Monto
-            //                         })).ToList();
-
-
-            //var resumenTransaccion = from r in querryTransacion
-            //                         group r.TipoTransaccion by new {
-            //                             r.TipoTransaccion,
-            //                             r.Periodo,
-            //                             r.Semana
-            //                         } into tipoTransaccion
-            //                         select new
-            //                         {
-            //                             tipoTransaccion.Key.TipoTransaccion,
-            //                             tipoTransaccion.Key.Periodo,
-            //                             tipoTransaccion.Key.Semana
-            //                         };
-
-
-            return resul;
-
-        }
+        //}
 
 
 
