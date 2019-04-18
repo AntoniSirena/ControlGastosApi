@@ -207,7 +207,9 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DBContext\MyDBcontext.cs" />
     <Compile Include="Dto\DataDto.cs" />
+    <Compile Include="Dto\FiltroResumenTransacciones.cs" />
     <Compile Include="Dto\PeriodoDto.cs" />
+    <Compile Include="Dto\ResumenTransaccionDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

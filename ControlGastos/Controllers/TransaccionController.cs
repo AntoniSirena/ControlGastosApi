@@ -1,9 +1,11 @@
 ﻿using ControlGastos.DBContext;
+using ControlGastos.Dto;
 using ControlGastos.Global;
 using ControlGastos.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -58,6 +60,17 @@ namespace ControlGastos.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GetPeriodos")]
+        public IEnumerable<Periodos> GetPeriodos()
+        {
+            var ano = DateTime.Now.Year;
+            var resul = (from p in db.Periodos
+                         select p).ToList();
+
+            return resul;
+        }
+
 
         [HttpGet]
         [Route("GetSemanas")]
@@ -88,17 +101,40 @@ namespace ControlGastos.Controllers
         }
 
 
-        //Metodo que retorna un resumen de las transacciones por Periodo y Conceptos
-        [HttpGet]
-        [Route("GetResumemIngresos")]
-        //public List<object> GetResumemIngresos()
+        //Metodos para mostrar un listado de transacciones con el concepto y el monto resumido
+        [HttpPost]
+        [Route("GetResumenIngresos")]
+        public List<ResumenTransaccionDto> GetResumenIngresos(FiltroResumenTransacciones filtro)
+        {
+            var listado = db.Database.SqlQuery<ResumenTransaccionDto>(
+                "SP_ResumenIngresos, @FechaInicial, @FechaFinal, @ConceptoId, @PeriodoId, @SemanaId, @AreaId",
+                new SqlParameter("@FechaInicial", filtro.FechaInicial),
+                new SqlParameter("@FechaFinal", filtro.FechaFinal),
+                new SqlParameter("@ConceptoId", filtro.ConceptoId),
+                new SqlParameter("@PeriodoId", filtro.PeriodoId),
+                new SqlParameter("@SemanaId", filtro.SemanaId),
+                new SqlParameter("@AreaId", filtro.AreaId) );
+
+            return listado.ToList();
+        }
+
+
+        //[HttpPost]
+        //[Route("GetResumenGastos")]
+        //public List<ResumenTransaccionDto> GetResumenGastos(FiltroResumenTransacciones filtro)
         //{
-        //    var ingreso = db.Database.ExecuteSqlCommand("SP_ResumenIngresos");
+        //    var listado = db.Database.SqlQuery<ResumenTransaccionDto>(
+        //        "SP_ResumenGastos, @FechaInicial, @FechaFinal, @ConceptoId, @PeriodoId, @SemanaId, @AreaId",
+        //        new SqlParameter("@FechaInicial", filtro.FechaInicial),
+        //        new SqlParameter("@FechaFinal", filtro.FechaFinal),
+        //        new SqlParameter("@ConceptoId", filtro.ConceptoId),
+        //        new SqlParameter("@PeriodoId", filtro.PeriodoId),
+        //        new SqlParameter("@SemanaId", filtro.SemanaId),
+        //        new SqlParameter("@AreaId", filtro.AreaId));
 
-        //    return ingreso;
-
+        //    return listado.ToList();
         //}
-
+        // Fin de la consulta
 
 
         [HttpPost]
@@ -133,7 +169,7 @@ namespace ControlGastos.Controllers
             }
 
             transaccion.PeriodoId = periodoActivoId;
-            transaccion.FechaRegistro = DateTime.Now.ToString("yyyy-MM-dd");
+            transaccion.FechaRegistro = DateTime.Now;
             transaccion.EstaAnulada = false;
 
 
@@ -157,7 +193,7 @@ namespace ControlGastos.Controllers
 
             query.EstaAnulada = true;
             query.RazonAnulacionId = transaccion.RazonAnulacionId;
-            query.FechaAnulacion = DateTime.Now.ToString("yyyy-MM-dd");
+            query.FechaAnulacion = DateTime.Now;
 
             db.SaveChanges();
 

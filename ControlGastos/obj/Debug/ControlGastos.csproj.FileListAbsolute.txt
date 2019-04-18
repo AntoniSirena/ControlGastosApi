@@ -209,4 +209,3 @@ C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csproj.CoreCompile
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csproj.CopyComplete
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.dll
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.pdb
-C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csprojAssemblyReference.cache

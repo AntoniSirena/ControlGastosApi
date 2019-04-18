@@ -16,11 +16,11 @@ namespace ControlGastos.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public string FechaApertura { get; set; }
+        public DateTime? FechaApertura { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public string FechaCierre { get; set; }
+        public DateTime? FechaCierre { get; set; }
 
         public bool EstaActivo { get; set; }
 
