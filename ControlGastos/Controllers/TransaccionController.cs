@@ -107,37 +107,37 @@ namespace ControlGastos.Controllers
         public List<ResumenTransaccionDto> GetResumenIngresos(FiltroResumenTransacciones filtro)
         {
             var listado = db.Database.SqlQuery<ResumenTransaccionDto>(
-                "SP_ResumenIngresos, @FechaInicial, @FechaFinal, @ConceptoId, @PeriodoId, @SemanaId, @AreaId",
-                new SqlParameter("@FechaInicial", filtro.FechaInicial),
-                new SqlParameter("@FechaFinal", filtro.FechaFinal),
-                new SqlParameter("@ConceptoId", filtro.ConceptoId),
-                new SqlParameter("@PeriodoId", filtro.PeriodoId),
-                new SqlParameter("@SemanaId", filtro.SemanaId),
-                new SqlParameter("@AreaId", filtro.AreaId) );
+                "Exec SP_ResumenIngresos",
+                new SqlParameter() { ParameterName = "@FechaInicial", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaInicial ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@FechaFinal", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaFinal ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@ConceptoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.ConceptoId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@PeriodoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.PeriodoId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@SemanaId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.SemanaId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@AreaId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.AreaId ?? DBNull.Value });
 
             return listado.ToList();
         }
 
 
-        //[HttpPost]
-        //[Route("GetResumenGastos")]
-        //public List<ResumenTransaccionDto> GetResumenGastos(FiltroResumenTransacciones filtro)
-        //{
-        //    var listado = db.Database.SqlQuery<ResumenTransaccionDto>(
-        //        "SP_ResumenGastos, @FechaInicial, @FechaFinal, @ConceptoId, @PeriodoId, @SemanaId, @AreaId",
-        //        new SqlParameter("@FechaInicial", filtro.FechaInicial),
-        //        new SqlParameter("@FechaFinal", filtro.FechaFinal),
-        //        new SqlParameter("@ConceptoId", filtro.ConceptoId),
-        //        new SqlParameter("@PeriodoId", filtro.PeriodoId),
-        //        new SqlParameter("@SemanaId", filtro.SemanaId),
-        //        new SqlParameter("@AreaId", filtro.AreaId));
-
-        //    return listado.ToList();
-        //}
-        // Fin de la consulta
-
-
         [HttpPost]
+        [Route("GetResumenGastos")]
+        public List<ResumenTransaccionDto> GetResumenGastos(FiltroResumenTransacciones filtro)
+        {
+            var listado = db.Database.SqlQuery<ResumenTransaccionDto>(
+                 "SP_ResumenGastos",
+                new SqlParameter() { ParameterName = "@FechaInicial", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaInicial ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@FechaFinal", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaFinal ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@ConceptoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.ConceptoId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@PeriodoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.PeriodoId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@SemanaId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.SemanaId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@AreaId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.AreaId ?? DBNull.Value });
+
+            return listado.ToList();
+        }
+        //Fin de la consulta
+
+
+       [HttpPost]
         [Route("Create")]
         public HttpResponseMessage Create(Transacciones transaccion)
         {
