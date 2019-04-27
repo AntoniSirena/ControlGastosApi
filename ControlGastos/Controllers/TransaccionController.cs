@@ -107,7 +107,7 @@ namespace ControlGastos.Controllers
         public List<ResumenTransaccionDto> GetResumenIngresos(FiltroResumenTransacciones filtro)
         {
             var listado = db.Database.SqlQuery<ResumenTransaccionDto>(
-                "Exec SP_ResumenIngresos",
+                "Exec SP_ResumenIngresos @FechaInicial, @FechaFinal, @ConceptoId, @PeriodoId, @SemanaId, @AreaId",
                 new SqlParameter() { ParameterName = "@FechaInicial", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaInicial ?? DBNull.Value },
                 new SqlParameter() { ParameterName = "@FechaFinal", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaFinal ?? DBNull.Value },
                 new SqlParameter() { ParameterName = "@ConceptoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.ConceptoId ?? DBNull.Value },
@@ -124,7 +124,7 @@ namespace ControlGastos.Controllers
         public List<ResumenTransaccionDto> GetResumenGastos(FiltroResumenTransacciones filtro)
         {
             var listado = db.Database.SqlQuery<ResumenTransaccionDto>(
-                 "SP_ResumenGastos",
+                 "SP_ResumenGastos @FechaInicial, @FechaFinal, @ConceptoId, @PeriodoId, @SemanaId, @AreaId",
                 new SqlParameter() { ParameterName = "@FechaInicial", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaInicial ?? DBNull.Value },
                 new SqlParameter() { ParameterName = "@FechaFinal", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaFinal ?? DBNull.Value },
                 new SqlParameter() { ParameterName = "@ConceptoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.ConceptoId ?? DBNull.Value },
@@ -134,10 +134,29 @@ namespace ControlGastos.Controllers
 
             return listado.ToList();
         }
+
+        [HttpPost]
+        [Route("GetEstadoResultado")]
+        public List<EstadoResultadoDto> EstadoResultado(FiltroResumenTransacciones filtro)
+        {
+            var listado = db.Database.SqlQuery<EstadoResultadoDto>(
+                "Exec SP_EstadoResultado @FechaInicial, @FechaFinal, @ConceptoId, @PeriodoId, @SemanaId, @AreaId",
+                new SqlParameter() { ParameterName = "@FechaInicial", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaInicial ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@FechaFinal", SqlDbType = System.Data.SqlDbType.Date, Value = (object)filtro.FechaFinal ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@ConceptoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.ConceptoId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@PeriodoId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.PeriodoId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@SemanaId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.SemanaId ?? DBNull.Value },
+                new SqlParameter() { ParameterName = "@AreaId", SqlDbType = System.Data.SqlDbType.Int, Value = (object)filtro.AreaId ?? DBNull.Value });
+
+            return listado.ToList();
+        }
+
         //Fin de la consulta
 
 
-       [HttpPost]
+
+
+        [HttpPost]
         [Route("Create")]
         public HttpResponseMessage Create(Transacciones transaccion)
         {
