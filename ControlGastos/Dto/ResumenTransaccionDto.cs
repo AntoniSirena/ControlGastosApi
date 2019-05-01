@@ -9,5 +9,6 @@ namespace ControlGastos.Dto
     {
         public string Conceptos { get; set; }
         public decimal? Monto { get; set; }
+        public string Origen { get; set; }
     }
 }
