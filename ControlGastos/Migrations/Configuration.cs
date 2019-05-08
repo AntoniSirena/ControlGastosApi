@@ -1,6 +1,7 @@
 namespace ControlGastos.Migrations
 {
     using ControlGastos.Models;
+    using ControlGastos.Models.Banco;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -55,7 +56,9 @@ namespace ControlGastos.Migrations
               p => p.Descripcion,
               new Statuses { Codigo = "01", Descripcion = "Abierto" },
               new Statuses { Codigo = "02", Descripcion = "Pendiente de abrir" },
-              new Statuses { Codigo = "03", Descripcion = "Cerrado" }
+              new Statuses { Codigo = "03", Descripcion = "Cerrado" },
+              new Statuses { Codigo = "04", Descripcion = "Activa" },
+              new Statuses { Codigo = "05", Descripcion = "Cancelada" }
 
               );
 
@@ -81,6 +84,22 @@ namespace ControlGastos.Migrations
              new Users { PersonaId = 1, NombreUsuario ="admin", Password = "admin123456", Email = "admin@hotmail.com"}
              );
 
+            //Tipos de transacciones de banco
+            context.banc_TipoTransaccionBancos.AddOrUpdate(
+             p => p.Codigo,
+             new banc_TipoTransaccionBancos { Codigo = "DEP", Descripcion = "Deposito"},
+             new banc_TipoTransaccionBancos { Codigo = "RET", Descripcion = "Retiro"},
+             new banc_TipoTransaccionBancos { Codigo = "TRANS", Descripcion = "Transferencia"},
+             new banc_TipoTransaccionBancos { Codigo = "AJUS", Descripcion = "Ajuste"}
+             );
+
+            //Tipos de cuentas
+            context.banc_TipoCuentas.AddOrUpdate(
+             p => p.Codigo,
+             new banc_TipoCuentas { Codigo = "DBH", Descripcion = "Debito de Ahorro"},
+             new banc_TipoCuentas { Codigo = "DBC", Descripcion = "Debito Corriente"},
+             new banc_TipoCuentas { Codigo = "CRD", Descripcion = "Credito"}
+             );
 
             context.SaveChanges();
 

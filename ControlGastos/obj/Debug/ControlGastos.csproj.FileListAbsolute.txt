@@ -210,3 +210,5 @@ C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csproj.CopyComplet
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.dll
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.pdb
 C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csprojAssemblyReference.cache
+C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.Migrations.Entidadesdebanco.resources
+C:\Git\ControlGastosApi\ControlGastos\obj\Debug\ControlGastos.csproj.GenerateResource.cache
