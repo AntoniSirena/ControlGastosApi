@@ -196,12 +196,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AreaController.cs" />
+    <Compile Include="Controllers\BancoController.cs" />
+    <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PeriodoController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\RazonesAnulacionTransaccionController.cs" />
     <Compile Include="Controllers\TiposConceptosController.cs" />
+    <Compile Include="Controllers\TransaccionBancoController.cs" />
     <Compile Include="Controllers\TransaccionController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -217,19 +220,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global\Constante.cs" />
-    <Compile Include="Migrations\201905080119449_Entidades de banco.cs" />
-    <Compile Include="Migrations\201905080119449_Entidades de banco.Designer.cs">
-      <DependentUpon>201905080119449_Entidades de banco.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Area.cs" />
-    <Compile Include="Models\Banco\banc_BalanceCuentas.cs" />
-    <Compile Include="Models\Banco\banc_Bancos.cs" />
-    <Compile Include="Models\Banco\banc_Cuentas.cs" />
-    <Compile Include="Models\Banco\banc_RazonAjustes.cs" />
-    <Compile Include="Models\Banco\banc_TipoCuentas.cs" />
-    <Compile Include="Models\Banco\banc_TipoTransaccionBancos.cs" />
-    <Compile Include="Models\Banco\banc_TransaccionesBancos.cs" />
+    <Compile Include="Models\Banco\banc_BalanceCuenta.cs" />
+    <Compile Include="Models\Banco\banc_Banco.cs" />
+    <Compile Include="Models\Banco\banc_Cuenta.cs" />
+    <Compile Include="Models\Banco\banc_RazonAjuste.cs" />
+    <Compile Include="Models\Banco\banc_TipoCuenta.cs" />
+    <Compile Include="Models\Banco\banc_TipoTransaccionBanco.cs" />
+    <Compile Include="Models\Banco\banc_TransaccionesBanco.cs" />
     <Compile Include="Models\RazonesAnulacion.cs" />
     <Compile Include="Models\RazonesAnulacionTransaccion.cs" />
     <Compile Include="Models\Statuses.cs" />
@@ -333,11 +332,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905080119449_Entidades de banco.resx">
-      <DependentUpon>201905080119449_Entidades de banco.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

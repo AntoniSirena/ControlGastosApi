@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ControlGastos.Models.Banco
 {
-    public class banc_TransaccionesBancos
+    public class banc_TransaccionesBanco
     {
         [Key]
         public int Id { get; set; }
@@ -29,27 +29,29 @@ namespace ControlGastos.Models.Banco
 
         public string Nota { get; set; }
 
+        public int Sequencia { get; set; }
+
 
         [ForeignKey("TipoTransaccionId")]
-        public virtual banc_TipoTransaccionBancos TipoTransaccionBancos { get; set; }
+        public virtual banc_TipoTransaccionBanco TipoTransaccionBanco { get; set; }
 
         [ForeignKey("BancoOrigenId")]
-        public virtual banc_Bancos BancoOrigen { get; set; }
+        public virtual banc_Banco BancoOrigen { get; set; }
 
         [ForeignKey("CuentaOrigenId")]
-        public virtual banc_Cuentas CuentaOrigen { get; set; }
+        public virtual banc_Cuenta CuentaOrigen { get; set; }
 
         [ForeignKey("BancoDestinoId")]
-        public virtual banc_Bancos BancoDestino { get; set; }
+        public virtual banc_Banco BancoDestino { get; set; }
 
         [ForeignKey("CuentaDestinoId")]
-        public virtual banc_Cuentas CuentaDestino { get; set; }
+        public virtual banc_Cuenta CuentaDestino { get; set; }
 
         [ForeignKey("RazonAjusteId")]
-        public virtual banc_RazonAjustes RazonAjustes { get; set; }
+        public virtual banc_RazonAjuste RazonAjuste { get; set; }
 
         [ForeignKey("EstadoId")]
-        public virtual Statuses Estado { get; set; }
+        public virtual Statuses Estatus { get; set; }
 
     }
 }

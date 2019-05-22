@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ControlGastos.Models.Banco
 {
-    public class banc_Bancos
+    public class banc_Banco
     {
         [Key]
         public int Id { get; set; }

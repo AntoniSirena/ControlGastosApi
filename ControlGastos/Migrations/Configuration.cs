@@ -87,18 +87,18 @@ namespace ControlGastos.Migrations
             //Tipos de transacciones de banco
             context.banc_TipoTransaccionBancos.AddOrUpdate(
              p => p.Codigo,
-             new banc_TipoTransaccionBancos { Codigo = "DEP", Descripcion = "Deposito"},
-             new banc_TipoTransaccionBancos { Codigo = "RET", Descripcion = "Retiro"},
-             new banc_TipoTransaccionBancos { Codigo = "TRANS", Descripcion = "Transferencia"},
-             new banc_TipoTransaccionBancos { Codigo = "AJUS", Descripcion = "Ajuste"}
+             new banc_TipoTransaccionBanco { Codigo = "DEP", Descripcion = "Deposito" },
+             new banc_TipoTransaccionBanco { Codigo = "RET", Descripcion = "Retiro" },
+             new banc_TipoTransaccionBanco { Codigo = "TRANS", Descripcion = "Transferencia" },
+             new banc_TipoTransaccionBanco { Codigo = "AJUS", Descripcion = "Ajuste" }
              );
 
             //Tipos de cuentas
             context.banc_TipoCuentas.AddOrUpdate(
              p => p.Codigo,
-             new banc_TipoCuentas { Codigo = "DBH", Descripcion = "Debito de Ahorro"},
-             new banc_TipoCuentas { Codigo = "DBC", Descripcion = "Debito Corriente"},
-             new banc_TipoCuentas { Codigo = "CRD", Descripcion = "Credito"}
+             new banc_TipoCuenta { Codigo = "DBH", Descripcion = "Debito de Ahorro" },
+             new banc_TipoCuenta { Codigo = "DBC", Descripcion = "Debito Corriente" },
+             new banc_TipoCuenta { Codigo = "CRD", Descripcion = "Credito" }
              );
 
             context.SaveChanges();

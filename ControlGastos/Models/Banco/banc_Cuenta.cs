@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ControlGastos.Models.Banco
 {
-    public class banc_Cuentas
+    public class banc_Cuenta
     {
         [Key]
         public int Id { get; set; }
@@ -22,12 +22,12 @@ namespace ControlGastos.Models.Banco
 
 
         [ForeignKey("TipoCuentaId")]
-        public virtual banc_TipoCuentas TipoCuentas { get; set; }
+        public virtual banc_TipoCuenta TipoCuenta { get; set; }
 
         [ForeignKey("BancoId")]
-        public virtual banc_Bancos Bancos { get; set; }
+        public virtual banc_Banco Banco { get; set; }
 
         [ForeignKey("EstadoId")]
-        public virtual Statuses Statuses { get; set; }
+        public virtual Statuses Status { get; set; }
     }
 }

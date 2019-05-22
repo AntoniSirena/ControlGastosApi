@@ -50,20 +50,19 @@ namespace ControlGastos.DBContext
 
         public DbSet<Users> Users { get; set; }
 
-        public DbSet<banc_TipoTransaccionBancos> banc_TipoTransaccionBancos { get; set; }
+        public DbSet<banc_TipoTransaccionBanco> banc_TipoTransaccionBancos { get; set; }
 
-        public DbSet<banc_Bancos> banc_Bancos { get; set; }
+        public DbSet<banc_Banco> banc_Bancos { get; set; }
 
-        public DbSet<banc_TipoCuentas> banc_TipoCuentas { get; set; }
+        public DbSet<banc_TipoCuenta> banc_TipoCuentas { get; set; }
 
-        public DbSet<banc_Cuentas> banc_Cuentas { get; set; }
+        public DbSet<banc_Cuenta> banc_Cuentas { get; set; }
 
-        public DbSet<banc_RazonAjustes> banc_RazonAjustes { get; set; }
+        public DbSet<banc_RazonAjuste> banc_RazonAjustes { get; set; }
 
-        public DbSet<banc_TransaccionesBancos> banc_TransaccionesBancos { get; set; }
+        public DbSet<banc_TransaccionesBanco> banc_TransaccionesBancos { get; set; }
 
-        public DbSet<banc_BalanceCuentas> banc_BalanceCuentas { get; set; }
-
+        public DbSet<banc_BalanceCuenta> banc_BalanceCuentas { get; set; }
 
 
 
